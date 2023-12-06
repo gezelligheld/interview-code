@@ -61,11 +61,12 @@ function promiseLimit2(list: Promise<any>[], limit: number) {
       const fn = list.shift();
       // 容量limit，执行一个后空间减1
       limit--;
-      fn?.then(() => {
+      const cb = () => {
         limit++;
         // 容量limit，执行完一个后空间加1
         handle(list, limit);
-      });
+      };
+      fn?.then(cb, cb);
     }
   }
   handle(list, limit);

@@ -2,12 +2,6 @@
  * 二叉树遍历
  */
 
-interface Tree {
-  val: number;
-  left?: Tree;
-  right?: Tree;
-}
-
 /**
  * 前序遍历
  */
